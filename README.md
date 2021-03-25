@@ -78,7 +78,7 @@ var region = CezRegion.stred;
 //Call the GetScheduleAsync method
 var schedule = await provider.GetScheduleAsync(region, hdoCode);
 //Write raw JSON response from CEZ web to console
-Console.WriteLine(schedule.AdditionalValues[CezHdoProvider.CEZ_FULL_JSON_RESPONSE_KEY);
+Console.WriteLine(schedule.AdditionalValues[CezHdoProvider.CEZ_FULL_JSON_RESPONSE_KEY]);
 //Get object model for raw JSON response
 var jsonRawObjectModel =
   (CezJsonRoot) schedule.AdditionalValues[CezHdoProvider.CEZ_FULL_OBJECT_MODEL_EQUIVALENT_TO_JSON_KEY];
