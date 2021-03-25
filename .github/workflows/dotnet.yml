@@ -1,0 +1,40 @@
+name: RStein HDO (Release cfg)|.NET Standard 2.0 build|.NET 5.0, .NET 4.8 tests|Ubuntu, Windows, MacOS 
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.x
+   #- name: Restore dependencies
+   #   run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release
+    - name: Test
+      run: dotnet test --no-build --verbosity normal --configuration Release --logger trx
+    - name: Upload Test results
+      if: success() || failure()
+      uses: actions/upload-artifact@v2.2.2
+      with:
+        name: RStein.HDO-${{ matrix.os }}-test_results
+        path: ./**/*.trx
+    - name: Test Reporter
+      uses: dorny/test-reporter@v1.3.1
+      if: success() || failure()
+      with:      
+        name:  Rstein Hdo test results (${{ matrix.os }})
+        path: ./**/*.trx
+        reporter: dotnet-trx

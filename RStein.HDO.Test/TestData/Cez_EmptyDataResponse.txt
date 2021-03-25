@@ -1,0 +1,18 @@
+﻿{
+  "data" : [ ],
+  "pageSize" : 20,
+  "pageNumber" : 1,
+  "pageOffset" : 0,
+  "pageBarItems" : 5,
+  "totalNumberOfRecords" : 0,
+  "pagingModel" : { },
+  "firstRecordNumberForPage" : 0,
+  "onePage" : true,
+  "lastPageNumber" : 0,
+  "lastRecordNumber" : 0,
+  "pageNumbersNavigation" : [ 1 ],
+  "defaultPageNumbersAround" : [ 1 ],
+  "fullyInitialized" : true,
+  "last" : true,
+  "first" : true
+}
