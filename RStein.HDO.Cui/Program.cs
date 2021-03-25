@@ -10,10 +10,15 @@ namespace RStein.HDO.Cui
   {
     static async Task Main(string[] args)
     {
-      //await getCezSchedule();
+      await getCezSchedule();
       //await runCachedHdoSchedule();
       //await checkRawJson();
+      //await testHdoActive();
+      Console.ReadKey();
+    }
 
+    private static async Task testHdoActive()
+    {
       //Create CEZ HDO provider
       using var provider = new CezHdoProvider();
 
@@ -33,7 +38,7 @@ namespace RStein.HDO.Cui
       //Check if the HDO will be active eight hours from now
       var timeToCheck = DateTime.Now.AddHours(8);
       var isHdoTime = schedule.IsHdoTime(timeToCheck);
-      
+
       Console.WriteLine($"Will be HDO active at {timeToCheck.ToShortTimeString()}? : {isHdoTime}");
     }
 
