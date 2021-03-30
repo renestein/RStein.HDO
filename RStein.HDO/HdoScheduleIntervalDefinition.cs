@@ -38,6 +38,8 @@ namespace RStein.HDO
     public IDictionary<string, object> AdditionalValues =>
       _additionalValues = _additionalValues ?? new Dictionary<string, object>();
 
+    public bool IsEmpty => !ScheduleIntervalItems.Any();
+
     public virtual bool IsHdoTime(DateTime timeToCheck)
     {
       return ApplyToDayOfWeeks.Contains(timeToCheck.DayOfWeek) &&

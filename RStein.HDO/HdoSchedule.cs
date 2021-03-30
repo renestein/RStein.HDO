@@ -40,6 +40,14 @@ namespace RStein.HDO
 
     public IDictionary<string, object> AdditionalValues => _additionalValues = _additionalValues ?? new Dictionary<string, object>();
 
+    public bool IsEmpty
+    {
+      get
+      {
+        return !ScheduleIntervalDefinitions.Any() || ScheduleIntervalDefinitions.All(definition => definition.IsEmpty);
+      }
+    }
+
     public virtual bool IsHdoTime(DateTime timeToCheck) => ScheduleIntervalDefinitions.Any(definition => definition.IsHdoTime(timeToCheck));
 
     public virtual bool IsHdoActive() => IsHdoTime(_getTimeFunc());
