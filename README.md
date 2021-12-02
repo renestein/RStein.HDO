@@ -3,7 +3,7 @@
 
 - C# API for 'HDO (Hromadne dalkove ovladani)'.
 - .NET Standard 2.0 library. 
-- Library is useful probably only for Czech citizens.
+- Library is probably useful only for Czech citizens.
 - Now supports only distribution regions served by the ČEZ company. PRs for other companies are welcome.
 
  # **Quick start**
@@ -24,9 +24,9 @@ Result:
 ![](https://snipboard.io/GuwQXY.jpg)
 
  ## **Cache the HDO schedule.**
- It is not wise to generate in a short period of time many HTTP(S) requests to HDO provider web/API because: 
+ It is not wise to generate in a short period many HTTP(S) requests to HDO provider web/API because: 
  - HDO schedule is not changed frequently.
- - HDO provider may block your access to its website because many requests made in a short amount of time may be seen as the naive attempt of the denial-of-service (DoS) attack. We don't know in advance what definition of the 'short amount of time' the concrete HDO provider applies. Anyway, it is in our best interest to be good and mostly invisible users. :)
+ - HDO provider may block your access to its website because many requests made in a short amount of time may be seen as the naive attempt of the denial-of-service (DoS) attack. We don't know in advance what definition of the 'short amount of time' the concrete HDO provider applies. Anyway, it is in our best interest to be good and invisible users. :)
  ``` C#
 //HDO schedule is cached for one day from the time it is downloaded
  var scheduleValidForOneDay = TimeSpan.FromDays(1);
